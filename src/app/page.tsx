@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { getAuthToken, setAuthToken, clearAuthToken } from '@/app/auth'
-
+import NavBar from '@/components/navbar/Navbar'
 const RecipeApp = () => {
   const [recipes, setRecipes] = useState([]);
   const [newRecipe, setNewRecipe] = useState({
@@ -65,10 +65,13 @@ const RecipeApp = () => {
 
   return (
     <div>
-      <h1>Recipe App</h1>
+      {/* <h1>Recipe App</h1> */}
+
       <nav>
-        <Link href="/login">Login</Link>
+        {/* <Link href="/login">Login</Link> */}
+        <NavBar/>
       </nav>
+
       <div>
         <h2>Add a Recipe</h2>
         <form>
@@ -108,22 +111,17 @@ const RecipeApp = () => {
         {recipes.length === 0 ? (
           <p>No recipes available.</p>
         ) : (
-          // <ul>
-          <>
-            {recipes.map((recipe)=>{
-              return recipe
-            })}
-            {/* {recipes.map((recipe:{name:string,ingredients:string[],instructions:string}, index:number) => (
+          <ul>
+            {recipes.map((recipe:{name:string,ingredients:string[],instructions:string}, index:number) => (
               <li key={index}>
                 <strong>{recipe.name}</strong>
                 <br />
-                Ingredients: {recipe.ingredients.join(', ')}
+                Ingredients: {recipe.ingredients.toLocaleString().replace(',',' ')}
                 <br />
                 Instructions: {recipe.instructions}
               </li>
-            ))} */}
-            </>
-          // </ul>
+            ))}
+          </ul>
         )}
 
 
