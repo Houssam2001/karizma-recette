@@ -54,7 +54,7 @@ const Login = () => {
           <form className="mt-8 space-y-6">
             <div>
               <label htmlFor="username" className="block font-bold text-gray-700">
-                Nom d'utilisateur:
+                Nom d&lsquo;utilisateur:
               </label>
               <input
                 type="text"
